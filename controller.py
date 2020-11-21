@@ -6,7 +6,7 @@ DNAME = 'alpine-test2'
 CONNSTRING = 'qemu:///system'
 
 
-def listAllDomains(conn):
+def list_all_domains(conn):
     '''Takes in a connection object for qemu and returns a list of all active and inactive domain names'''
     domain_names = conn.listDefinedDomains()
     if conn == None:
@@ -24,7 +24,7 @@ def listAllDomains(conn):
     return domain_names
 
 
-def listActiveDomains(conn):
+def list_active_domains(conn):
     '''Takes in a qemu connection object and returns a dictionary of domain ID numbers and the name that corresponds. Since inactive
     domains do not have ID numbers, they are not included in the returned dict'''
     domain_names = {}
@@ -42,8 +42,8 @@ def listActiveDomains(conn):
         return domain_names
 
 
-def domainState(domain_name, conn):
-    '''Takes in the name of a domain and a connection object; returns the state and code of the domain, and the reason code'''
+def domain_state(domain_name, conn):
+    '''Takes in the name of a domain and a connection object; returns the state of the domain and the reason it is in that state'''
     domain = conn.lookupByName(domain_name)
     
     if domain == None:
@@ -111,3 +111,4 @@ def domainState(domain_name, conn):
     reason = domain_reasons[state][reason_code]
 
     return state, reason
+
