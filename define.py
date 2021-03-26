@@ -1,6 +1,6 @@
 import libvirt
 
-xml = '''<domain type='kvm'>
+xml = """<domain type='kvm'>
   <name>alpine_test1</name>
   <uuid>d09b2bd1-217a-433a-84d8-6fd2a0110424</uuid>
   <memory unit='KiB'>1048576</memory>
@@ -109,9 +109,9 @@ xml = '''<domain type='kvm'>
     </memballoon>
   </devices>
 </domain>
-'''
+"""
 
-conn = libvirt.open('qemu:///system')
+conn = libvirt.open("qemu:///system")
 if conn == None:
     print("Connection Error, bro")
     exit(1)
@@ -119,7 +119,7 @@ if conn == None:
 
 dom = conn.defineXML(xml)
 if dom == None:
-    print('Define Error, bro')
+    print("Define Error, bro")
     exit(1)
 
 
@@ -127,4 +127,4 @@ if dom.create() < 0:
     print("create vm error, bro")
     exit(1)
 
-print(f'Guest { dom.name() } has booted')
+print(f"Guest { dom.name() } has booted")
