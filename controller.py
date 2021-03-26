@@ -72,7 +72,7 @@ def list_active_domains():
 
 def domain_state(domain_name):
     '''Takes in the name of a domain; returns the state of the domain and the reason it is in that state'''
-    conn = _get_ro_conn():
+    conn = _get_ro_conn()
     domain = conn.lookupByName(domain_name)
 
     if domain == None:
