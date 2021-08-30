@@ -1,3 +1,3 @@
 # Home-made libvirt controller
 
-Right now I'm just recreating virsh commands and creating other useful functions for interacting with libvirt. At some point I will be wrapping these in an API for controlling remote hypervisors.
+Right now I'm just experimenting to play around with controlling libvirt programmatically. Nothing about it is production ready, I'm afraid. 
